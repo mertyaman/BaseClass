@@ -32,7 +32,7 @@ import bilyoner.selenium.utils.BilyonerStringOperations;
 
 
 /**
- * @author ali.aktolun
+ * @author mert.yaman
  *	BilyonerBase sinifi selenium driver ile ilgili tum fonksiyonlari icerir. Butun page siniflari bu classtan turemistir.
  *	Logger , WebDriver, WebDriverWait bu sinif icinde tanimlanmistir.
  *	Webelement ile ilgili fonksiyonlar , Websayfası ile ilgili fonksiyonlar bu class icindedir.
@@ -183,23 +183,10 @@ public abstract class BilyonerBase {
 		el.click();
 	}
 
-	protected void clickWebElement(WebElement element) {//duzenlenecek kod ali
-	//	js.executeScript("arguments[0].scrollIntoView(true)", element); //odaklanma
-		//js.executeScript("window.scrollTo(0,arguments[0]);",element.getLocation().y);
-		try {
-			HighlightElementClick(element);
-			element.click();
-		} catch (Exception e) {
-			try {
-				js.executeScript("arguments[0].scrollIntoView(true)", element);
-				js.executeScript("arguments[0].click()", element);
-				
-			} catch (Exception e2) {
-				
-			}
-			
-		}
-		
+	protected void clickWebElement(WebElement element) {
+
+		HighlightElementClick(element);
+		element.click();
 	}
 
 	protected String getWebElementText(String htmlText) {
